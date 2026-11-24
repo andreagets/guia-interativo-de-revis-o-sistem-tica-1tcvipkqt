@@ -1,0 +1,146 @@
+export interface ReferenceItem {
+  id: string
+  citation: string // e.g. "Page et al. (2021)"
+  abnt: string
+  url?: string
+  doi?: string
+  accessDate?: string
+  category: 'principal' | 'complementar' | 'identidade'
+}
+
+export const REFERENCES_DATA: ReferenceItem[] = [
+  {
+    id: 'aromataris-2024',
+    citation: 'Aromataris et al. (2024)',
+    abnt: 'AROMATARIS, Edoardo et al. (ed.). JBI manual for evidence synthesis. Adelaide: JBI, 2024. Versão eletrônica com atualizações. DOI: https://doi.org/10.46658/JBIMES-24-01. Disponível em: https://synthesismanual.jbi.global. Acesso em: 23 nov. 2026.',
+    url: 'https://synthesismanual.jbi.global',
+    doi: 'https://doi.org/10.46658/JBIMES-24-01',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'cochrane-2024',
+    citation: 'Cochrane (2024)',
+    abnt: 'COCHRANE. Cochrane handbook for systematic reviews of interventions. Version 6.5. [S. l.]: Cochrane, 2024. Disponível em: https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current. Acesso em: 23 nov. 2026.',
+    url: 'https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'cochrane-rob2',
+    citation: 'Cochrane (RoB 2)',
+    abnt: 'COCHRANE. RoB 2: a revised Cochrane risk-of-bias tool for randomized trials. [S. l.]: Cochrane, [s. d.]. Disponível em: https://methods.cochrane.org/bias/resources/rob-2-revised-cochrane-risk-bias-tool-randomized-trials. Acesso em: 23 nov. 2026.',
+    url: 'https://methods.cochrane.org/bias/resources/rob-2-revised-cochrane-risk-bias-tool-randomized-trials',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'grade-book',
+    citation: 'GRADE Working Group',
+    abnt: 'GRADE WORKING GROUP. GRADE book. [S. l.]: GRADE Working Group, [s. d.]. Disponível em: https://book.gradepro.org/. Acesso em: 23 nov. 2026.',
+    url: 'https://book.gradepro.org/',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'jbi-appraisal',
+    citation: 'JBI (Critical appraisal tools)',
+    abnt: 'JBI. Critical appraisal tools. Adelaide: JBI, [s. d.]. Disponível em: https://jbi.global/critical-appraisal-tools. Acesso em: 23 nov. 2026.',
+    url: 'https://jbi.global/critical-appraisal-tools',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'jbi-effectiveness-2024',
+    citation: 'JBI (2024 - Efetividade)',
+    abnt: 'JBI. Systematic reviews of effectiveness. In: AROMATARIS, Edoardo et al. (ed.). JBI manual for evidence synthesis. Adelaide: JBI, 2024. DOI: https://doi.org/10.46658/JBIMES-24-03. Disponível em: https://jbi-global.atlassian.net/wiki/spaces/MANUAL/pages/355827955. Acesso em: 23 nov. 2026.',
+    url: 'https://jbi-global.atlassian.net/wiki/spaces/MANUAL/pages/355827955',
+    doi: 'https://doi.org/10.46658/JBIMES-24-03',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'page-prisma-2020',
+    citation: 'Page et al. (2021a)',
+    abnt: 'PAGE, Matthew J. et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ, v. 372, n71, 2021. DOI: https://doi.org/10.1136/bmj.n71. Disponível em: https://www.bmj.com/content/372/bmj.n71. Acesso em: 23 nov. 2026.',
+    url: 'https://www.bmj.com/content/372/bmj.n71',
+    doi: 'https://doi.org/10.1136/bmj.n71',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'page-prisma-ee-2021',
+    citation: 'Page et al. (2021b)',
+    abnt: 'PAGE, Matthew J. et al. PRISMA 2020 explanation and elaboration: updated guidance and exemplars for reporting systematic reviews. BMJ, v. 372, n160, 2021. DOI: https://doi.org/10.1136/bmj.n160. Disponível em: https://www.bmj.com/content/372/bmj.n160. Acesso em: 23 nov. 2026.',
+    url: 'https://www.bmj.com/content/372/bmj.n160',
+    doi: 'https://doi.org/10.1136/bmj.n160',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'prisma-c-2026',
+    citation: 'PRISMA (2026)',
+    abnt: 'PRISMA. PRISMA-Children and Adolescents (PRISMA-C) 2026. [S. l.]: PRISMA Statement, 2026. Disponível em: https://www.prisma-statement.org/children. Acesso em: 23 nov. 2026.',
+    url: 'https://www.prisma-statement.org/children',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'prisma-extensions',
+    citation: 'PRISMA (Extensões)',
+    abnt: 'PRISMA. PRISMA extensions. [S. l.]: PRISMA Statement, [s. d.]. Disponível em: https://www.prisma-statement.org/extensions. Acesso em: 23 nov. 2026.',
+    url: 'https://www.prisma-statement.org/extensions',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'prisma-flow-diagram',
+    citation: 'PRISMA (Flow diagram)',
+    abnt: 'PRISMA. PRISMA 2020 flow diagram. [S. l.]: PRISMA Statement, [s. d.]. Disponível em: https://www.prisma-statement.org/prisma-2020-flow-diagram. Acesso em: 23 nov. 2026.',
+    url: 'https://www.prisma-statement.org/prisma-2020-flow-diagram',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'prisma-p-statement',
+    citation: 'PRISMA (PRISMA-P)',
+    abnt: 'PRISMA. Protocols: PRISMA-P. [S. l.]: PRISMA Statement, [s. d.]. Disponível em: https://www.prisma-statement.org/protocols. Acesso em: 23 nov. 2026.',
+    url: 'https://www.prisma-statement.org/protocols',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'prisma-s-statement',
+    citation: 'PRISMA (PRISMA-S)',
+    abnt: 'PRISMA. PRISMA-S. [S. l.]: PRISMA Statement, [s. d.]. Disponível em: https://www.prisma-statement.org/prisma-search. Acesso em: 23 nov. 2026.',
+    url: 'https://www.prisma-statement.org/prisma-search',
+    accessDate: '23 nov. 2026',
+    category: 'complementar',
+  },
+  {
+    id: 'rethlefsen-prisma-s-2021',
+    citation: 'Rethlefsen et al. (2021)',
+    abnt: 'RETHLEFSEN, Melissa L. et al. PRISMA-S: an extension to the PRISMA statement for reporting literature searches in systematic reviews. Systematic Reviews, v. 10, artigo 39, 2021. DOI: https://doi.org/10.1186/s13643-020-01542-z. Disponível em: https://doi.org/10.1186/s13643-020-01542-z. Acesso em: 23 nov. 2026.',
+    url: 'https://doi.org/10.1186/s13643-020-01542-z',
+    doi: 'https://doi.org/10.1186/s13643-020-01542-z',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'shamseer-prisma-p-2015',
+    citation: 'Shamseer et al. (2015)',
+    abnt: 'SHAMSEER, Larissa et al. Preferred reporting items for systematic review and meta-analysis protocols (PRISMA-P) 2015: elaboration and explanation. BMJ, v. 349, g7647, 2015. DOI: https://doi.org/10.1136/bmj.g7647. Disponível em: https://www.bmj.com/content/349/bmj.g7647. Acesso em: 23 nov. 2026.',
+    url: 'https://www.bmj.com/content/349/bmj.g7647',
+    doi: 'https://doi.org/10.1136/bmj.g7647',
+    accessDate: '23 nov. 2026',
+    category: 'principal',
+  },
+  {
+    id: 'silva-escopo-2026',
+    citation: 'Silva (2026b - Referência Visual)',
+    abnt: 'SILVA, Andréa Soares Rocha da. Revisão de escopo: guia interativo para estruturação e execução de uma scoping review. Fortaleza: GETS/UFC; GESPD/UFC, 2026. Disponível em: https://andreagets.github.io/Infografico-interativo-Guia-Revisao-Escopo/. Acesso em: 24 out. 2026.',
+    url: 'https://andreagets.github.io/Infografico-interativo-Guia-Revisao-Escopo/',
+    accessDate: '24 out. 2026',
+    category: 'identidade',
+  },
+]

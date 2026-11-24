@@ -1,0 +1,29 @@
+name: Gerar package-lock.json
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Gerar o lockfile
+        run: npm install --package-lock-only
+
+      - name: Commit do lockfile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "chore: gerar package-lock.json" || echo "nada a commitar"
+          git push

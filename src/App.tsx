@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from '@/components/Layout'
 import Index from '@/pages/Index'
 import NotFound from '@/pages/NotFound'
@@ -24,7 +24,11 @@ import LabKAutoavaliacao from '@/pages/labs/LabKAutoavaliacao'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    // HashRouter: mantém a navegação funcional em hospedagem 100% estática
+    // (GitHub Pages), onde URLs como /laboratorios não são reescritas pelo
+    // servidor. Com hash, qualquer URL aberta/atualizada diretamente cai no
+    // index.html e o roteador resolve (#/laboratorios).
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           {/* Core Pages */}
@@ -52,6 +56,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }

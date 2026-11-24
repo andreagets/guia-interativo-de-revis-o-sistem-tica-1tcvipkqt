@@ -1,0 +1,3 @@
+# GitHub Pages: serve tudo (incluindo pastas que começam com _ ou .) direto,
+# sem o processamento do Jekyll — exigido pelo build do Vite (_app) e por
+# arquivos como o 404.html gerado.

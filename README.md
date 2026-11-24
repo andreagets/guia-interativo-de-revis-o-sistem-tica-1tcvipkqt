@@ -1,131 +1,138 @@
-# Projeto Criado com o Skip
+# Guia Interativo de Revisão Sistemática
 
-Este projeto foi criado de ponta a ponta com o [Skip](https://goskip.dev).
+Recurso educacional interativo para apoiar o ensino de revisão sistemática,
+com módulos, laboratórios práticos, glossário e referências.
 
-## 🚀 Stack Tecnológica
+Todo o conteúdo funciona **100% no navegador**: é um site estático, sem banco
+de dados e sem servidor próprio. Isso torna a publicação no **GitHub Pages**
+simples e gratuita.
 
-- **React 19** - Biblioteca JavaScript para construção de interfaces
-- **Vite** - Build tool extremamente rápida
-- **TypeScript** - Superset tipado do JavaScript
-- **Shadcn UI** - Componentes reutilizáveis e acessíveis
-- **Tailwind CSS** - Framework CSS utility-first
-- **React Router** - Roteamento para aplicações React
-- **React Hook Form** - Gerenciamento de formulários performático
-- **Zod** - Validação de schemas TypeScript-first
-- **Recharts** - Biblioteca de gráficos para React
+> **⚠️ Privacidade dos dados:** todo o progresso dos estudantes (módulos
+> visitados, laboratórios completados, respostas dos exercícios) fica salvo
+> **apenas no navegador** de quem usa o site (localStorage). **Nada é enviado
+> a servidores** — os dados não saem do computador ou celular de quem estuda.
 
-## 📋 Pré-requisitos
+---
 
-- Node.js 18+
-- npm
+## 📋 Passo a passo para publicar no GitHub Pages
 
-## 🔧 Instalação
+Você vai precisar de:
 
-```bash
-npm install
-```
+- Uma conta no [GitHub](https://github.com) (gratuita).
+- O **Git** instalado no seu computador ([baixe aqui](https://git-scm.com/downloads)).
 
-## 💻 Scripts Disponíveis
+### 1. Baixar (ou copiar) o código do projeto para o seu computador
 
-### Desenvolvimento
+- No Skip, baixe o código do projeto (botão de download/exportar o projeto).
+- Descompacte o arquivo ZIP em uma pasta do seu computador, por exemplo
+  `C:\Users\voce\guia-revisao` (Windows) ou `~/guia-revisao` (Mac/Linux).
+- **Importante:** a pasta precisa conter o arquivo `index.html`, a pasta `src/`
+  e o arquivo `package.json` na raiz. Se dentro da pasta descompactada houver
+  *outra* pasta com o nome do projeto, use essa pasta de dentro.
 
-```bash
-# Iniciar servidor de desenvolvimento
-npm start
-# ou
-npm run dev
-```
+### 2. Criar o repositório no GitHub
 
-Abre a aplicação em modo de desenvolvimento em [http://localhost:5173](http://localhost:5173).
+1. Acesse [github.com/new](https://github.com/new) estando logada.
+2. Em **Repository name**, escolha um nome — por exemplo `guia-revisao-sistematica`.
+   Esse nome aparecerá no endereço do site.
+3. Mantenha o repositório como **Public** (necessário para o Pages gratuito).
+4. **Não** marque as opções de criar README, .gitignore ou licença
+   (o projeto já tem os arquivos dele).
+5. Clique em **Create repository**.
 
-### Build
+### 3. Enviar o código para o GitHub
 
-```bash
-# Build para produção
-npm run build
-
-# Build para desenvolvimento
-npm run build:dev
-```
-
-Gera os arquivos otimizados para produção na pasta `dist/`.
-
-### Preview
+No computador, abra o **Terminal** (Mac/Linux) ou o **PowerShell** (Windows),
+entre na pasta do projeto e execute os comandos abaixo — um por vez.
+Substitua `SEU-USUARIO` pelo seu nome de usuário do GitHub e
+`guia-revisao-sistematica` pelo nome do repositório que você criou:
 
 ```bash
-# Visualizar build de produção localmente
-npm run preview
+# entre na pasta do projeto
+cd caminho/ate/guia-revisao
+
+# transforma a pasta em um repositório Git
+git init
+
+# marca a branch principal como "main" (nome exigido pelo workflow)
+git branch -M main
+
+# prepara todos os arquivos do projeto
+git add .
+
+# salva a primeira versão no histórico
+git commit -m "Primeira versão do Guia de Revisão Sistemática"
+
+# conecta com o repositório criado no GitHub
+git remote add origin https://github.com/SEU-USUARIO/guia-revisao-sistematica.git
+
+# envia o código
+git push -u origin main
 ```
 
-Permite visualizar a build de produção localmente antes do deploy.
+O GitHub vai pedir seu login (pode pedir para criar um *token* — siga as
+instruções que aparecerem na tela).
 
-### Linting e Formatação
+> Sempre que atualizar o projeto depois, basta repetir três comandos:
+> `git add .` → `git commit -m "descrição da mudança"` → `git push`.
 
-```bash
-# Executar linter
-npm run lint
+### 4. Ativar o GitHub Pages
 
-# Executar linter e corrigir problemas automaticamente
-npm run lint:fix
+O projeto já vem com um arquivo pronto de automação
+(`.github/workflows/deploy-pages.yml`) que **compila e publica o site
+automaticamente a cada envio** para a branch `main`. Você só precisa ativar:
 
-# Formatar código com Oxfmt
-npm run format
+1. No seu repositório no GitHub, abra **Settings** (Configurações).
+2. No menu lateral esquerdo, clique em **Pages**.
+3. Em **Build and deployment** → **Source**, escolha **GitHub Actions**.
+4. Pronto! Na primeira vez (e a cada novo `push`), a aba **Actions** do
+   repositório vai rodar a publicação automaticamente (leva alguns minutos).
+
+> Opcional: o Node.js e o npm já são instalados automaticamente pelo workflow
+> — você **não** precisa instalar nada no seu computador além do Git para
+> publicar. (Se quiser testar o site localmente antes, aí sim você precisa do
+> [Node.js 20+](https://nodejs.org): rode `npm install` e depois `npm run dev`.)
+
+### 5. Onde o site ficará disponível
+
+Após o workflow terminar (aba **Actions** com o ✅ verde), o site estará no
+endereço:
+
 ```
+https://SEU-USUARIO.github.io/nome-do-repositorio/
+```
+
+Por exemplo: `https://maria-silva.github.io/guia-revisao-sistematica/`
+
+Esse endereço também aparece em **Settings → Pages**, no topo da página.
+
+- **Compartilhe com a turma:** basta enviar esse link — funciona em qualquer
+  navegador, no computador ou no celular.
+- **Cada página tem seu próprio link** no formato
+  `.../#/laboratorios`, `.../#/glossario` etc. — dá para linkar direto uma
+  atividade específica (o `#` faz parte do formato e é o que garante que
+  atualizar a página nunca dê erro 404).
+- **Atualizações:** sempre que você enviar novas versões com `git push`, o
+  site é atualizado sozinho em poucos minutos.
+
+---
+
+## 🛠️ Para desenvolvedores (opcional)
+
+- **Stack:** React 19 + Vite + TypeScript + Tailwind CSS + shadcn/ui.
+- **Roteamento:** `HashRouter` (react-router-dom) — escolhido para funcionar
+  em hospedagem 100% estática, sem configuração no servidor.
+- **Build:** `npm run build` gera a pasta `dist/` com caminhos relativos
+  (`base: './'` no Vite), permitindo hospedar em qualquer subcaminho.
+- **Preview local do build:** `npm run build` e depois `npm run preview`.
 
 ## 📁 Estrutura do Projeto
 
 ```
 .
-├── src/              # Código fonte da aplicação
-├── public/           # Arquivos estáticos
-├── dist/             # Build de produção (gerado)
-├── node_modules/     # Dependências (gerado)
-└── package.json      # Configurações e dependências do projeto
+├── .github/workflows/   # Automação de publicação (GitHub Pages)
+├── src/                 # Código fonte da aplicação
+├── public/              # Arquivos estáticos (ícones, imagens)
+├── dist/                # Build de produção (gerado, não versionar)
+└── package.json         # Dependências e scripts
 ```
-
-## 🎨 Componentes UI
-
-Este template inclui uma biblioteca completa de componentes Shadcn UI baseados em Radix UI:
-
-- Accordion
-- Alert Dialog
-- Avatar
-- Button
-- Checkbox
-- Dialog
-- Dropdown Menu
-- Form
-- Input
-- Label
-- Select
-- Switch
-- Tabs
-- Toast
-- Tooltip
-- E muito mais...
-
-## 📝 Ferramentas de Qualidade de Código
-
-- **TypeScript**: Tipagem estática
-- **Oxlint**: Linter extremamente rápido
-- **Oxfmt**: Formatação automática de código
-
-## 🔄 Workflow de Desenvolvimento
-
-1. Instale as dependências: `npm install`
-2. Inicie o servidor de desenvolvimento: `npm start`
-3. Faça suas alterações
-4. Verifique o código: `npm run lint`
-5. Formate o código: `npm run format`
-6. Crie a build: `npm run build`
-7. Visualize a build: `npm run preview`
-
-## 📦 Build e Deploy
-
-Para criar uma build otimizada para produção:
-
-```bash
-npm run build
-```
-
-Os arquivos otimizados serão gerados na pasta `dist/` e estarão prontos para deploy.
